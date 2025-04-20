@@ -26,7 +26,7 @@ const PomodoroTimer: React.FC = () => {
     // made a timeleft as a principle time whicch depends on the mode
     const [timeRunning, setTimeRunning] = useState<boolean>(false);
     // Here we check the time running
-    const timerRef = useRef<NodeJS.Timeout | null>(null);
+    const timerRef = useRef(null);
     // here we made a timeout ref
     useEffect(() => {
         setTimeLeft(timestamps[mode]);
