@@ -87,4 +87,28 @@ const PomodoroTimer: React.FC = () => {
                     <button
                         className={`${
                             timeRunning ? 'bg-red-500' : 'bg-green-500'
-                        } text-white text-4xl h-full w-1/2 rounded-tl-2xl
+                        } text-white text-4xl h-full w-1/2 rounded-tl-2xl rounded-bl-2xl`}
+                        onClick={() => setTimeRunning(!timeRunning)}
+                    >
+                        {timeRunning ? 'Stop' : 'Start'}
+                    </button>
+                    <button
+                        className="bg-gray-500 text-white text-4xl h-full w-1/2 rounded-tr-2xl rounded-br-2xl"
+                        onClick={() => {
+                            setTimeRunning(false);
+                            setTimeLeft(timestamps[mode]);
+                            if (timerRef.current) {
+                                clearInterval(timerRef.current);
+                                timerRef.current = null;
+                            }
+                        }}
+                    >
+                        Reset
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default PomodoroTimer;
